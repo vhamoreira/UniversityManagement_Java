@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projeto_lp_aed2.javafx.UniController">
+    <children>
+        <MenuBar layoutY="-5.0" prefHeight="35.0" prefWidth="651.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <Menu mnemonicParsing="false" text="Open">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleReadFileAction" text="Open TXT File" />
+                      <MenuItem mnemonicParsing="false" onAction="#handleReadBinFileAction" text="open BIN File" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Save">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveFileAction" text="Save TXT File" />
+                      <MenuItem mnemonicParsing="false" onAction="#handleSaveBinFileAction" text="Save BIN File" />
+                    </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" onAction="#handleExitAction" text="Exit" />
+               </items></Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TabPane layoutY="24.0" prefHeight="377.0" prefWidth="651.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Turmas">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox prefHeight="366.0" prefWidth="642.0">
+                                    <children>
+                                        <HBox prefHeight="36.0" prefWidth="653.0" spacing="5.0">
+                                            <children>
+                                                <ComboBox fx:id="professorComboBox" onAction="#handleSelectProfessorAction" prefHeight="27.0" prefWidth="284.0" promptText="Professor" />
+                                            </children>
+                                            <padding>
+                                                <Insets left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                        </HBox>
+                                        <TableView fx:id="turmasTable" prefHeight="281.0" prefWidth="642.0">
+                                            <columns>
+                                                <TableColumn fx:id="turmaCol" prefWidth="106.0" text="Turma" />
+                                                <TableColumn fx:id="cursoCol" prefWidth="117.0" text="Curso" />
+                                                <TableColumn fx:id="uniCurricularCol" prefWidth="115.0" text="Unidade Curricular" />
+                                                <TableColumn fx:id="numAlunosCol" prefWidth="124.0" text="Numero de Alunos" />
+                                                <TableColumn fx:id="professorCol" prefWidth="137.0" text="Professor" />
+                                            </columns>
+                                        </TableView>
+                              <HBox prefHeight="41.0" prefWidth="600.0" spacing="5.0">
+                                 <padding>
+                                    <Insets left="5.0" top="5.0" />
+                                 </padding>
+                                 <children>
+                                    <TextField fx:id="turmaField1" prefHeight="25.0" prefWidth="102.0" promptText="turma" />
+                                    <TextField fx:id="cursoField1" prefHeight="25.0" prefWidth="140.0" promptText="curso" />
+                                    <TextField fx:id="uniCurricularlField1" promptText="unidade curricular" />
+                                    <TextField fx:id="numAlunosField1" prefHeight="25.0" prefWidth="123.0" promptText="numero de alunos" />
+                                    <TextField fx:id="professorField1" layoutX="451.0" layoutY="15.0" prefHeight="25.0" prefWidth="103.0" promptText="Professor" />
+                                    <Button mnemonicParsing="false" onAction="#handleAddTurmaAction" prefHeight="25.0" prefWidth="63.0" text="ADD" />
+                                 </children>
+                              </HBox>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Professores">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <VBox prefHeight="366.0" prefWidth="642.0">
+                        <children>
+                           <TableView fx:id="profsTable" prefHeight="310.0" prefWidth="642.0">
+                             <columns>
+                               <TableColumn fx:id="idprofCol" prefWidth="75.0" text="ID" />
+                               <TableColumn fx:id="identifierCodeCol" prefWidth="150.0" text="Codigo de Identificacao" />
+                                 <TableColumn fx:id="nomeProfCol" minWidth="0.0" prefWidth="102.0" text="Nome" />
+                                 <TableColumn fx:id="cursoProfCol" prefWidth="123.0" text="Curso" />
+                                 <TableColumn fx:id="uniCurricularProfCol" prefWidth="191.0" text="Unidade Curricular" />
+                             </columns>
+                           </TableView>
+                           <HBox prefHeight="41.0" prefWidth="600.0" spacing="5.0">
+                              <padding>
+                                 <Insets left="5.0" top="5.0" />
+                              </padding>
+                              <children>
+                                 <TextField fx:id="idProfField" prefHeight="25.0" prefWidth="102.0" promptText="ID" />
+                                 <TextField fx:id="identifierCodeField" prefHeight="25.0" prefWidth="140.0" promptText="Codigo Identificacao" />
+                                 <TextField fx:id="nomeProfField" promptText="Nome" />
+                                 <TextField fx:id="cursoProfField" prefHeight="25.0" prefWidth="123.0" promptText="Curso" />
+                                 <TextField fx:id="uCurricularProfField" layoutX="451.0" layoutY="15.0" prefHeight="25.0" prefWidth="103.0" promptText="Unidade Curricular" />
+                                 <Button mnemonicParsing="false" onAction="#handleAddProfAction" prefHeight="25.0" prefWidth="63.0" text="ADD" />
+                              </children>
+                           </HBox>
+                        </children>
+                            </VBox>
+                        </children>
+                    </AnchorPane>
+                </Tab>
+            </tabs>
+
+
+
+
+        </TabPane>
+    </children>
+</AnchorPane>
